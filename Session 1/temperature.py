@@ -11,6 +11,7 @@ class Temperature(Scale):
     def __init__(self,value,scale):
         self.value = value
         self.scale = scale
+
     def Add(self, temp2: Temperature):
         if(self.scale == temp2.scale):
             self.value += temp2.value
@@ -46,4 +47,21 @@ class Temperature(Scale):
             return Temperature.TempToString(self)
         else: 
             return "Not the same scale"
+    def getScale(self):
+        return self.scale
+        
+    def ToFahrenheit(self):
+        match self.scale:
+            case Temperature.Kelvin:
+                self.value = ((self.value - 273.15) *9/5) + 32
+            case Temperature.Celcius:
+                self.value = (self.value *9/5) + 32
+            case Temperature.Fahrenheit:
+                self.value = self.value
+            case _:
+                return "Scale not valid. Should be K/C/F"
+
+        self.scale = Temperature.Fahrenheit
+        return Temperature.TempToString(self)
+    
         

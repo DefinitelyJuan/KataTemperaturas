@@ -88,6 +88,22 @@ class testcases(unittest.TestCase):
     def test_divition6(self):
         temp1 = Temperature(16,Temperature.Celcius)
         temp2 = Temperature(5,Temperature.Celcius)
-        self.assertEqual(temp1.Divide(temp2), "3.2 C")
+        self.assertEqual(temp1.Divide(temp2), "3.2 C")    
+
+    def test_fahrenheitConv1(self):
+        temp1 = Temperature(15,Temperature.Celcius)
+        self.assertEqual(temp1.ToFahrenheit(),"59.0 F")
+    
+    def test_fahrenheitConv2(self):
+        temp1 = Temperature(80,Temperature.Fahrenheit)
+        self.assertEqual(temp1.ToFahrenheit(),"80 F")
+    
+    def test_fahrenheitConv3(self):
+        temp1 = Temperature(400,Temperature.Kelvin)
+        self.assertEqual(temp1.ToFahrenheit(), "260.33 F")    
+            
+    def test_fahrenheitConv4(self):
+        temp1 = Temperature(400,"P")
+        self.assertEqual(temp1.ToFahrenheit(), "Scale not valid. Should be K/C/F")    
 
 
