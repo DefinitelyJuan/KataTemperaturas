@@ -34,6 +34,11 @@ class testcases(unittest.TestCase):
         temp1 = Temperature(40,Temperature.Celcius)
         temp2 = Temperature(0,Temperature.Celcius)
         self.assertEqual(temp1.Substraction(temp2), "40 C")      
+        
+    def test_substraction5(self):
+        temp1 = Temperature(40,Temperature.Celcius)
+        temp2 = Temperature(-10,Temperature.Celcius)
+        self.assertEqual(temp1.Substraction(temp2), "50 C")  
 
     def test_multiplication1(self):
         temp1 = Temperature(12,Temperature.Celcius)
@@ -89,6 +94,11 @@ class testcases(unittest.TestCase):
         temp1 = Temperature(16,Temperature.Celcius)
         temp2 = Temperature(5,Temperature.Celcius)
         self.assertEqual(temp1.Divide(temp2), "3.2 C")    
+        
+    def test_divition7(self):
+        temp1 = Temperature(16,Temperature.Celcius)
+        temp2 = Temperature(-5,Temperature.Celcius)
+        self.assertEqual(temp1.Divide(temp2), "-3.2 C")    
 
     def test_fahrenheitConv1(self):
         temp1 = Temperature(15,Temperature.Celcius)
