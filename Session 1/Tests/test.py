@@ -120,6 +120,22 @@ class testcases(unittest.TestCase):
             
     def test_celciusConv4(self):
         temp1 = Temperature(400,"P")
-        self.assertEqual(temp1.ToCelcius(), "Scale not valid. Should be K/C/F")     
+        self.assertEqual(temp1.ToCelcius(), "Scale not valid. Should be K/C/F")   
+        
+    def test_kelvinConv1(self):
+        temp1 = Temperature(15,Temperature.Celcius)
+        self.assertEqual(temp1.ToKelvin(),"288.15 K")
+    
+    def test_kelvinConv2(self):
+        temp1 = Temperature(260.33,Temperature.Fahrenheit)
+        self.assertEqual(temp1.ToKelvin(),"400.0 K")
+    
+    def test_kelvinConv3(self):
+        temp1 = Temperature(400,Temperature.Kelvin)
+        self.assertEqual(temp1.ToKelvin(), "400 K")    
+            
+    def test_kelvinConv4(self):
+        temp1 = Temperature(400,"P")
+        self.assertEqual(temp1.ToKelvin(), "Scale not valid. Should be K/C/F")       
 
 

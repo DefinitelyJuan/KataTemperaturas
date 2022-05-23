@@ -79,4 +79,17 @@ class Temperature(Scale):
         self.scale = Temperature.Celcius
         return Temperature.TempToString(self)
     
+    def ToKelvin(self):
+        match self.scale:
+            case Temperature.Kelvin:
+                self.value = self.value
+            case Temperature.Celcius:
+                self.value = self.value + 273.15
+            case Temperature.Fahrenheit:
+                self.value = ((self.value - 32) *5/9) + 273.15
+            case _:
+                return "Scale not valid. Should be K/C/F"
+
+        self.scale = Temperature.Kelvin
+        return Temperature.TempToString(self)
         
