@@ -14,10 +14,19 @@ class Temperature(Scale):
     def Add(self, temp2: Temperature):
         if(self.scale == temp2.scale):
             self.value += temp2.value
-            return f"{self.value} {self.scale}"
+            return Temperature.TempToString(self)
         else: 
             return "Not the same scale"
-
-    
+    def Substraction(self, temp2: Temperature):
+        diff = self.value - temp2.value
+        if(diff == 0):
+            return "Difference must not be 0"
+        if(self.scale == temp2.scale):
+            self.value = diff
+            return Temperature.TempToString(self)
+        else: 
+            return "Not the same scale"
+    def TempToString(self):
+        return f"{self.value} {self.scale}"
         
 
