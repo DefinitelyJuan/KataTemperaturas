@@ -138,4 +138,12 @@ class testcases(unittest.TestCase):
         temp1 = Temperature(400,"P")
         self.assertEqual(temp1.ToKelvin(), "Scale not valid. Should be K/C/F")       
 
-
+    def test_valueupdate1(self):
+        temp1 = Temperature(15,Temperature.Celcius)
+        temp2 = Temperature(10,Temperature.Celcius)
+        temp1.Add(temp2)
+        self.assertEqual(temp1.TempToString(), "25 C")
+        temp1.ToFahrenheit()
+        self.assertEqual(temp1.TempToString(), "77.0 F")
+        temp1.ToKelvin()
+        self.assertEqual(temp1.TempToString(), "298.15 K")
