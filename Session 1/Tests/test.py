@@ -60,4 +60,34 @@ class testcases(unittest.TestCase):
         temp2 = Temperature(-2,Temperature.Celcius)
         self.assertEqual(temp1.Multiplication(temp2), "-80 C")   
     
+    def test_divition1(self):
+        temp1 = Temperature(15,Temperature.Celcius)
+        temp2 = Temperature(5,Temperature.Celcius)
+        self.assertEqual(temp1.Divide(temp2),"3.0 C")
+    
+    def test_divition2(self):
+        temp1 = Temperature(80,Temperature.Fahrenheit)
+        temp2 = Temperature(20,Temperature.Fahrenheit)
+        self.assertEqual(temp1.Divide(temp2),"4.0 F")
+    
+    def test_divition3(self):
+        temp1 = Temperature(400,Temperature.Fahrenheit)
+        temp2 = Temperature(23,Temperature.Celcius)
+        self.assertEqual(temp1.Divide(temp2), Temperature.errString)    
+
+    def test_divition4(self):
+        temp1 = Temperature(16,Temperature.Fahrenheit)
+        temp2 = Temperature(5,Temperature.Celcius)
+        self.assertEqual(temp1.Divide(temp2), Temperature.errString)
+
+    def test_divition5(self):
+        temp1 = Temperature(34,Temperature.Fahrenheit)
+        temp2 = Temperature(0,Temperature.Celcius)
+        self.assertEqual(temp1.Divide(temp2), "Can't divide by 0")
+
+    def test_divition6(self):
+        temp1 = Temperature(16,Temperature.Celcius)
+        temp2 = Temperature(5,Temperature.Celcius)
+        self.assertEqual(temp1.Divide(temp2), "3.2 C")
+
 

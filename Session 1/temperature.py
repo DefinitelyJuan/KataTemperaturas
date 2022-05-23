@@ -26,9 +26,9 @@ class Temperature(Scale):
             return Temperature.TempToString(self)
         else: 
             return "Not the same scale"
-            
+
     def TempToString(self):
-        return f"{self.value} {self.scale}"
+        return f"{round(self.value,2)} {self.scale}"
 
     def Multiplication(self,temp2 : Temperature):
         if(self.scale == temp2.scale):
@@ -37,4 +37,13 @@ class Temperature(Scale):
         else: 
             return "Not the same scale"
         
+    def Divide(self, temp2 : Temperature):
+        if(temp2.value == 0):
+            return "Can't divide by 0"
 
+        if(self.scale == temp2.scale):
+            self.value /= temp2.value
+            return Temperature.TempToString(self)
+        else: 
+            return "Not the same scale"
+        
