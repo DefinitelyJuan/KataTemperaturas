@@ -26,7 +26,15 @@ class Temperature(Scale):
             return Temperature.TempToString(self)
         else: 
             return "Not the same scale"
+            
     def TempToString(self):
         return f"{self.value} {self.scale}"
+
+    def Multiplication(self,temp2 : Temperature):
+        if(self.scale == temp2.scale):
+            self.value *= temp2.value
+            return Temperature.TempToString(self)
+        else: 
+            return "Not the same scale"
         
 
