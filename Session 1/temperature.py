@@ -1,5 +1,6 @@
 
 from __future__ import annotations
+from tkinter.tix import CheckList
 class Scale: 
     Kelvin = "K"
     Celcius = "C"
@@ -49,7 +50,7 @@ class Temperature(Scale):
             return "Not the same scale"
     def getScale(self):
         return self.scale
-        
+
     def ToFahrenheit(self):
         match self.scale:
             case Temperature.Kelvin:
@@ -62,6 +63,20 @@ class Temperature(Scale):
                 return "Scale not valid. Should be K/C/F"
 
         self.scale = Temperature.Fahrenheit
+        return Temperature.TempToString(self)     
+
+    def ToCelcius(self):
+        match self.scale:
+            case Temperature.Kelvin:
+                self.value = (self.value - 273.15)
+            case Temperature.Celcius:
+                self.value = self.value
+            case Temperature.Fahrenheit:
+                self.value = (self.value - 32) *5/9
+            case _:
+                return "Scale not valid. Should be K/C/F"
+
+        self.scale = Temperature.Celcius
         return Temperature.TempToString(self)
     
         
