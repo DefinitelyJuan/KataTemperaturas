@@ -81,4 +81,17 @@ class Temperature(Scale):
             
         return resTemp
 
+    def ToKelvin(self):
+        match self.scale:
+            case "F":
+                resTemp = Temperature(round((((self.value -32) * 5/9) + 273.15), 2),"K")
+            case "C":
+                resTemp = Temperature(round((self.value + 273.15), 2),"K")
+            case "K":
+                resTemp = Temperature(self.value, self.scale)
+            case _:
+                resTemp = "Scale not valid"
+            
+        return resTemp
+
         
