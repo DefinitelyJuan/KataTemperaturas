@@ -116,3 +116,20 @@ class testCases(unittest.TestCase):
         temp1 = Temperature(80,"T")
         with self.assertRaises(AttributeError):
             temp1.ToFahrenheit().TempToString()
+
+    def test_CelciusConv1(self):
+        temp1 = Temperature(46, Temperature.Celcius)
+        self.assertEqual(temp1.ToCelcius().TempToString(), "46 C")    
+    def test_CelciusConv2(self):
+        temp1 = Temperature(400,Temperature.Kelvin)
+        self.assertEqual(temp1.ToCelcius().TempToString(), "126.85 C")    
+    def test_CelciusConv3(self):
+        temp1 = Temperature(74,Temperature.Fahrenheit)
+        self.assertEqual(temp1.ToCelcius().TempToString(), "23.33 C")   
+    def test_CelciusConv4(self):
+        temp1 = Temperature(322,"T")
+        self.assertEqual(temp1.ToCelcius(), "Scale not valid")         
+    def test_CelciusConv5(self):
+        temp1 = Temperature(80,"T")
+        with self.assertRaises(AttributeError):
+            temp1.ToCelcius().TempToString()
