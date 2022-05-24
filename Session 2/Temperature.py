@@ -21,7 +21,7 @@ class Temperature(Scale):
             return resultTemp
         else:
             return Temperature.errstring
-            
+
     def Substract(self, temp2: Temperature):
         diff = self.value - temp2.value
         if(diff == 0):
@@ -29,6 +29,13 @@ class Temperature(Scale):
         if(self.scale == temp2.scale):
             resultTemp = Temperature(diff, self.scale)
             return resultTemp
+        else:
+            return Temperature.errstring
+    
+    def Multiply(self, temp2: Temperature):
+        if(self.scale == temp2.scale):
+            tempResult = Temperature((self.value * temp2.value),self.scale)
+            return tempResult
         else:
             return Temperature.errstring
 
