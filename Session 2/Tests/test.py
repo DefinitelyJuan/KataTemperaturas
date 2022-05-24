@@ -69,3 +69,33 @@ class testCases(unittest.TestCase):
         with self.assertRaises(AttributeError):
             temp1.Multiply(temp2).TempToString()
 
+    def test_Division1(self):
+        temp1 = Temperature(31,Temperature.Celcius)
+        temp2 = Temperature(10,Temperature.Celcius)
+        self.assertEqual(temp1.Divide(temp2).TempToString(), "3.1 C")    
+    def test_Division2(self):
+        temp1 = Temperature(400,Temperature.Kelvin)
+        temp2 = Temperature(200,Temperature.Kelvin)
+        self.assertEqual(temp1.Divide(temp2).TempToString(), "2.0 K")    
+    def test_Division3(self):
+        temp1 = Temperature(86,Temperature.Fahrenheit)
+        temp2 = Temperature(43,Temperature.Fahrenheit)
+        self.assertEqual(temp1.Divide(temp2).TempToString(), "2.0 F")   
+    def test_Division4(self):
+        temp1 = Temperature(322,Temperature.Kelvin)
+        temp2 = Temperature(22,Temperature.Celcius)
+        self.assertEqual(temp1.Divide(temp2), Temperature.errstring)         
+    def test_Division5(self):
+        temp1 = Temperature(80,Temperature.Fahrenheit)
+        temp2 = Temperature(200,Temperature.Kelvin)
+        with self.assertRaises(AttributeError):
+            temp1.Divide(temp2).TempToString()
+    def test_Division6(self):
+        temp1 = Temperature(62,Temperature.Fahrenheit)
+        temp2 = Temperature(0,Temperature.Fahrenheit)
+        self.assertEqual(temp1.Divide(temp2), "Temp2 value cannot be 0")  
+    def test_Division7(self):
+        temp1 = Temperature(62,Temperature.Fahrenheit)
+        temp2 = Temperature(0,Temperature.Fahrenheit)
+        with self.assertRaises(AttributeError):
+            temp1.Divide(temp2).TempToString()

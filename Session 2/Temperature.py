@@ -39,5 +39,14 @@ class Temperature(Scale):
         else:
             return Temperature.errstring
 
+    def Divide(self, temp2: Temperature):
+        if(temp2.value == 0):
+            return "Temp2 value cannot be 0"
+        if(self.scale == temp2.scale):
+            tempResult = Temperature(round((self.value/temp2.value),2), self.scale)
+            return tempResult
+        else:
+            return Temperature.errstring
+
     
         
