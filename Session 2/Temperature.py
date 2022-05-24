@@ -1,11 +1,14 @@
 from __future__ import annotations
-from pyexpat import ErrorString
+
 
 
 class Scale: 
     Kelvin = "K"
     Fahrenheit = "F"
     Celcius = "C"
+    def __init__(self, scale):
+        self.scale = scale
+
 
 class Temperature(Scale): 
     errstring = "Not the same scale"
@@ -48,5 +51,22 @@ class Temperature(Scale):
         else:
             return Temperature.errstring
 
-    
+    def getScale(self):
+        objScale = Scale(self.scale)
+        return objScale
+
+    def ToFahrenheit(self):
+        match self.scale:
+            case "F":
+                resTemp = Temperature(self.value, self.scale)
+            case "C":
+                resTemp = Temperature(round(((self.value * 9/5) + 32), 2), "F")
+            case "K":
+                resTemp = Temperature(round((((self.value - 273.15) * 9/5)+32), 2),"F")
+            case _:
+                resTemp = "Scale not valid"
+            
+        return resTemp
+
+
         

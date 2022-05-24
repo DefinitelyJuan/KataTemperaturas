@@ -99,3 +99,20 @@ class testCases(unittest.TestCase):
         temp2 = Temperature(0,Temperature.Fahrenheit)
         with self.assertRaises(AttributeError):
             temp1.Divide(temp2).TempToString()
+
+    def test_FahrenheitConv1(self):
+        temp1 = Temperature(17, Temperature.Celcius)
+        self.assertEqual(temp1.ToFahrenheit().TempToString(), "62.6 F")    
+    def test_FahrenheitConv2(self):
+        temp1 = Temperature(400,Temperature.Kelvin)
+        self.assertEqual(temp1.ToFahrenheit().TempToString(), "260.33 F")    
+    def test_FahrenheitConv3(self):
+        temp1 = Temperature(86,Temperature.Fahrenheit)
+        self.assertEqual(temp1.ToFahrenheit().TempToString(), "86 F")   
+    def test_FahrenheitConv4(self):
+        temp1 = Temperature(322,"T")
+        self.assertEqual(temp1.ToFahrenheit(), "Scale not valid")         
+    def test_FahrenheitConv5(self):
+        temp1 = Temperature(80,"T")
+        with self.assertRaises(AttributeError):
+            temp1.ToFahrenheit().TempToString()
