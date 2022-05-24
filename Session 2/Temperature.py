@@ -21,6 +21,16 @@ class Temperature(Scale):
             return resultTemp
         else:
             return Temperature.errstring
+            
+    def Substract(self, temp2: Temperature):
+        diff = self.value - temp2.value
+        if(diff == 0):
+            return "Result must not be 0"
+        if(self.scale == temp2.scale):
+            resultTemp = Temperature(diff, self.scale)
+            return resultTemp
+        else:
+            return Temperature.errstring
 
     
         

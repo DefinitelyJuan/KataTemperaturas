@@ -25,4 +25,25 @@ class testCases(unittest.TestCase):
         with self.assertRaises(AttributeError):
             temp1.Addition(temp2).TempToString()
     
+    def test_Substraction1(self):
+        temp1 = Temperature(40,Temperature.Celcius)
+        temp2 = Temperature(20,Temperature.Celcius)
+        self.assertEqual(temp1.Substract(temp2).TempToString(), "20 C")    
+    def test_Substraction2(self):
+        temp1 = Temperature(230,Temperature.Kelvin)
+        temp2 = Temperature(300,Temperature.Kelvin)
+        self.assertEqual(temp1.Substract(temp2).TempToString(), "-70 K")    
+    def test_Substraction3(self):
+        temp1 = Temperature(65,Temperature.Fahrenheit)
+        temp2 = Temperature(50,Temperature.Fahrenheit)
+        self.assertEqual(temp1.Substract(temp2).TempToString(), "15 F")   
+    def test_Substraction4(self):
+        temp1 = Temperature(23,Temperature.Celcius)
+        temp2 = Temperature(200,Temperature.Kelvin)
+        self.assertEqual(temp1.Substract(temp2), Temperature.errstring)         
+    def test_Substraction5(self):
+        temp1 = Temperature(23,Temperature.Celcius)
+        temp2 = Temperature(200,Temperature.Kelvin)
+        with self.assertRaises(AttributeError):
+            temp1.Substract(temp2).TempToString()
 
