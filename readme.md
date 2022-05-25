@@ -1,4 +1,4 @@
-"#Kata Temperaturas" 
+# Kata Temperaturas 
 This repo consists of three session folders, each one filled with the respective code and test script done in the session. The program that should be coded on each session is the following: 
 
     TemperatureScale: Celsius Fahrenheit, Kelvin
