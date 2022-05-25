@@ -14,3 +14,11 @@ This repo consists of three session folders, each one filled with the respective
       ToString() : String // "5.4800F" 5.48C -5.48K
 
 In other words, a class that has add, substract, multiply, divide, scale and fahrenheit, celcius and kelvin conversion methods. It will consist of two attributes: Value and scale (which can be Kelvin, Celcius or Fahrenheit
+
+
+## [Session 1](https://github.com/DefinitelyJuan/KataTemperaturas/tree/master/Session%201)
+First kata session. Main class .py and tests folder with test script inside. 
+## [Session 2](https://github.com/DefinitelyJuan/KataTemperaturas/tree/master/Session%202)
+Second kata session. Main class .py and tests folder with test script inside.  
+## [Session 3](https://github.com/DefinitelyJuan/KataTemperaturas/tree/master/Session%203)
+Third kata session. Main class .py and tests folder with test script inside. 
