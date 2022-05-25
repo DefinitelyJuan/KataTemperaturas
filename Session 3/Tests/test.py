@@ -26,6 +26,14 @@ class TestCases(unittest.TestCase):
         temp1 = Temperature(320, Temperature.Kelvin)
         temp2 = Temperature(200.40, Temperature.Kelvin)
         self.assertEqual(temp1.Add(temp2).TempToString(),"520.4 K")
+    def test_Addition7(self):
+        temp1 = Temperature(-320, Temperature.Kelvin)
+        temp2 = Temperature(200, Temperature.Kelvin)
+        self.assertEqual(temp1.Add(temp2).TempToString(),"-120 K")
+    def test_Addition8(self):
+        temp1 = Temperature(-41, Temperature.Celcius)
+        temp2 = Temperature(-25.3, Temperature.Celcius)
+        self.assertEqual(temp1.Add(temp2).TempToString(),"-66.3 C")
 
 
     def test_Substraction1(self):
@@ -56,6 +64,14 @@ class TestCases(unittest.TestCase):
         temp1 = Temperature(32, Temperature.Celcius)
         temp2 = Temperature(4.80, Temperature.Celcius)
         self.assertEqual(temp1.Substract(temp2).TempToString(),"27.2 C")
+    def test_Substraction8(self):
+        temp1 = Temperature(-28, Temperature.Celcius)
+        temp2 = Temperature(45, Temperature.Celcius)
+        self.assertEqual(temp1.Substract(temp2).TempToString(),"-73 C")
+    def test_Substraction9(self):
+        temp1 = Temperature(-68, Temperature.Fahrenheit)
+        temp2 = Temperature(-74, Temperature.Fahrenheit)
+        self.assertEqual(temp1.Substract(temp2).TempToString(),"6 F")
 
     def test_Multiplication1(self):
         temp1 = Temperature(12, Temperature.Celcius)
@@ -85,6 +101,19 @@ class TestCases(unittest.TestCase):
         temp1 = Temperature(22.2, Temperature.Celcius)
         temp2 = Temperature(12.8, Temperature.Celcius)
         self.assertEqual(temp1.Multiply(temp2).TempToString(),"284.16 C")
+    def test_Multiplication8(self):
+        temp1 = Temperature(-22.2, Temperature.Celcius)
+        temp2 = Temperature(12.8, Temperature.Celcius)
+        self.assertEqual(temp1.Multiply(temp2).TempToString(),"-284.16 C")
+    def test_Multiplication9(self):
+        temp1 = Temperature(22.2, Temperature.Celcius)
+        temp2 = Temperature(-12.8, Temperature.Celcius)
+        self.assertEqual(temp1.Multiply(temp2).TempToString(),"-284.16 C")
+    def test_Multiplication10(self):
+        temp1 = Temperature(-22.2, Temperature.Celcius)
+        temp2 = Temperature(-12.8, Temperature.Celcius)
+        self.assertEqual(temp1.Multiply(temp2).TempToString(),"284.16 C")
+
 
     def test_Division1(self):
         temp1 = Temperature(30, Temperature.Celcius)
@@ -118,6 +147,18 @@ class TestCases(unittest.TestCase):
         temp1 = Temperature(22.2, Temperature.Celcius)
         temp2 = Temperature(12.8, Temperature.Celcius)
         self.assertEqual(temp1.Divide(temp2).TempToString(),"1.73 C")
+    def test_Division9(self):
+        temp1 = Temperature(-65, Temperature.Fahrenheit)
+        temp2 = Temperature(10, Temperature.Fahrenheit)
+        self.assertEqual(temp1.Divide(temp2).TempToString(),"-6.5 F")
+    def test_Division10(self):
+        temp1 = Temperature(65, Temperature.Fahrenheit)
+        temp2 = Temperature(-10, Temperature.Fahrenheit)
+        self.assertEqual(temp1.Divide(temp2).TempToString(),"-6.5 F")
+    def test_Division11(self):
+        temp1 = Temperature(-65, Temperature.Fahrenheit)
+        temp2 = Temperature(-10, Temperature.Fahrenheit)
+        self.assertEqual(temp1.Divide(temp2).TempToString(),"6.5 F")
 
     def test_GetScale1(self):
         temp1 = Temperature(20,Temperature.Celcius)
