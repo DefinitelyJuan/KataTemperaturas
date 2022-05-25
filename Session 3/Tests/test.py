@@ -118,3 +118,32 @@ class TestCases(unittest.TestCase):
         temp1 = Temperature(22.2, Temperature.Celcius)
         temp2 = Temperature(12.8, Temperature.Celcius)
         self.assertEqual(temp1.Divide(temp2).TempToString(),"1.73 C")
+
+    def test_GetScale1(self):
+        temp1 = Temperature(20,Temperature.Celcius)
+        self.assertEqual(temp1.GetScale().scale, Temperature.Celcius)
+    def test_GetScale2(self):
+        temp1 = Temperature(89,Temperature.Fahrenheit)
+        self.assertEqual(temp1.GetScale().scale, Temperature.Fahrenheit)
+    def test_GetScale3(self):
+        temp1 = Temperature(250,Temperature.Kelvin)
+        self.assertEqual(temp1.GetScale().scale, Temperature.Kelvin)
+
+    def test_ToFahrenheit1(self):
+        temp = Temperature(80, Temperature.Fahrenheit)
+        self.assertEqual(temp.ToFahrenheit().TempToString(), "80 F")
+    def test_ToFahrenheit2(self):
+        temp = Temperature(48, Temperature.Celcius)
+        self.assertEqual(temp.ToFahrenheit().TempToString(), "118.4 F")
+    def test_ToFahrenheit3(self):
+        temp = Temperature(300, Temperature.Kelvin)
+        self.assertEqual(temp.ToFahrenheit().TempToString(), "80.33 F")
+    def test_ToFahrenheit4(self):
+        temp = Temperature(80, "T")
+        self.assertEqual(temp.ToFahrenheit().TempToString(), "Scale not valid")
+    def test_ToFahrenheit5(self):
+        temp = Temperature(-31, Temperature.Celcius)
+        self.assertEqual(temp.ToFahrenheit().TempToString(), "-23.8 F")
+    def test_ToFahrenheit6(self):
+        temp = Temperature(23.8, Temperature.Celcius)
+        self.assertEqual(temp.ToFahrenheit().TempToString(), "74.84 F")

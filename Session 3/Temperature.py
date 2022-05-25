@@ -1,5 +1,9 @@
 from __future__ import annotations
+
 class Scale:
+    def __init__(self, scale):
+        self.scale = scale
+
     Kelvin = "K"
     Fahrenheit = "F"
     Celcius = "C"
@@ -67,3 +71,23 @@ class Temperature(Scale):
         else: 
             resTemp = Temperature(Temperature.errString, "E")
             return resTemp
+
+    def GetScale(self):
+        scaleobj = Scale(self.scale)
+        return scaleobj
+
+    def ToFahrenheit(self):
+        match (self.scale):
+            case "F":
+                resTemp = Temperature(self.value, self.scale)
+                return resTemp
+            case "C":
+                resTemp = Temperature(round(((self.value *9/5)+ 32),2), Temperature.Fahrenheit)
+                return resTemp
+            case "K":
+                resTemp = Temperature(round((((self.value -273.15)*9/5) + 32),2), Temperature.Fahrenheit)
+                return resTemp
+            case _:
+                resTemp = Temperature("Scale not valid", "E")
+            
+        return resTemp
