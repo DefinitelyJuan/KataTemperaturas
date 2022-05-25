@@ -91,3 +91,19 @@ class Temperature(Scale):
                 resTemp = Temperature("Scale not valid", "E")
             
         return resTemp
+    
+    def ToCelcius(self):
+        match (self.scale):
+            case "F":
+                resTemp = Temperature(round(((self.value -32)*5/9),2), Temperature.Celcius)
+                return resTemp
+            case "C":
+                resTemp = Temperature(self.value, self.scale)
+                return resTemp
+            case "K":
+                resTemp = Temperature(round((self.value - 273.15),2), Temperature.Celcius)
+                return resTemp
+            case _:
+                resTemp = Temperature("Scale not valid", "E")
+            
+        return resTemp

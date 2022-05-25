@@ -147,3 +147,22 @@ class TestCases(unittest.TestCase):
     def test_ToFahrenheit6(self):
         temp = Temperature(23.8, Temperature.Celcius)
         self.assertEqual(temp.ToFahrenheit().TempToString(), "74.84 F")
+
+    def test_ToCelcius1(self):
+        temp = Temperature(80, Temperature.Fahrenheit)
+        self.assertEqual(temp.ToCelcius().TempToString(), "26.67 C")
+    def test_ToCelcius2(self):
+        temp = Temperature(48, Temperature.Celcius)
+        self.assertEqual(temp.ToCelcius().TempToString(), "48 C")
+    def test_ToCelcius3(self):
+        temp = Temperature(345, Temperature.Kelvin)
+        self.assertEqual(temp.ToCelcius().TempToString(), "71.85 C")
+    def test_ToCelcius4(self):
+        temp = Temperature(22, "T")
+        self.assertEqual(temp.ToCelcius().TempToString(), "Scale not valid")
+    def test_ToCelcius5(self):
+        temp = Temperature(-76, Temperature.Fahrenheit)
+        self.assertEqual(temp.ToCelcius().TempToString(), "-60.0 C")
+    def test_ToCelcius6(self):
+        temp = Temperature(231.8, Temperature.Kelvin)
+        self.assertEqual(temp.ToCelcius().TempToString(), "-41.35 C")
