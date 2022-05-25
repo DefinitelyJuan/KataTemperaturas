@@ -12,7 +12,7 @@ class Temperature(Scale):
         self.scale = scale
 
     def Add(self, temp2: Temperature):
-        sum = self.value + temp2.value
+        sum = round((self.value + temp2.value),2)
         if(sum == 0):
             resTemp = Temperature("Result cannot be 0", "E")
             return resTemp
@@ -30,12 +30,39 @@ class Temperature(Scale):
             return self.value
 
     def Substract(self, temp2: Temperature):
-        diff = self.value - temp2.value
+        diff = round((self.value - temp2.value),2)
         if(diff == 0):
             resTemp = Temperature("Result cannot be 0", "E")
             return resTemp
         elif(self.scale == temp2.scale):
             resTemp = Temperature(diff, self.scale)
+            return resTemp
+        else: 
+            resTemp = Temperature(Temperature.errString, "E")
+            return resTemp
+
+    def Multiply(self, temp2: Temperature):
+        mult = round((self.value * temp2.value),2)
+        if(mult == 0):
+            resTemp = Temperature("Result cannot be 0", "E")
+            return resTemp
+        elif(self.scale == temp2.scale):
+            resTemp = Temperature(mult, self.scale)
+            return resTemp
+        else: 
+            resTemp = Temperature(Temperature.errString, "E")
+            return resTemp
+
+    def Divide(self, temp2: Temperature):
+        if(temp2.value == 0):
+            resTemp = Temperature("Cannot divide by 0", "E")
+            return resTemp
+        div = round((self.value / temp2.value),2)
+        if(div == 0):
+            resTemp = Temperature("Result cannot be 0", "E")
+            return resTemp
+        elif(self.scale == temp2.scale):
+            resTemp = Temperature(div, self.scale)
             return resTemp
         else: 
             resTemp = Temperature(Temperature.errString, "E")
